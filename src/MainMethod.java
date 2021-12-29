@@ -29,7 +29,7 @@ public class MainMethod
     public MainMethod() throws IOException, ClassNotFoundException {
     }
 
-    public int searchTeam(String TeamName)
+    public static int searchTeam(String TeamName)
     {
         for(int i = 0; i<teams.size();i++)
         {
@@ -46,7 +46,7 @@ public class MainMethod
         readTeam();
         FrontPage frontPage = new FrontPage();
         frontPage.setVisible(true);
-       
+
 
 
 
