@@ -16,6 +16,7 @@ public class MainMethod
         catch (Exception ex)
         {
             teams = new ArrayList<Team>();
+
         }
     }
     static void writeTeam() throws IOException {
@@ -42,12 +43,13 @@ public class MainMethod
     }
 
 
-    public static void main(String args[]) throws IOException, ClassNotFoundException {
+    public static void main(String args[]) throws IOException, ClassNotFoundException
+    {
+
         readTeam();
+        System.out.println(teams.size());
         FrontPage frontPage = new FrontPage();
         frontPage.setVisible(true);
-
-
 
 
 

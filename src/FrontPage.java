@@ -11,6 +11,7 @@ import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import java.lang.reflect.Modifier;
 
 public class FrontPage extends JFrame {
 
@@ -36,6 +37,7 @@ public class FrontPage extends JFrame {
 	 * Create the frame.
 	 */
 	public FrontPage() {
+
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 529, 295);
 		contentPane = new JPanel();
