@@ -1,4 +1,6 @@
-public abstract class Player
+import java.io.Serializable;
+
+public abstract class Player implements Serializable
 {
     String name;
     int age;
