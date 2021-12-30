@@ -19,6 +19,7 @@ public class CoachLogin extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	private JPasswordField passwordField;
+	JLabel lblNewLabel_1 = new JLabel("\r\n");
 
 	/**
 	 * Launch the application.
@@ -58,7 +59,7 @@ public class CoachLogin extends JFrame {
 				sign.setVisible(true);
 			}
 		});
-		btnNewButton.setBounds(235, 353, 142, 36);
+		btnNewButton.setBounds(245, 355, 142, 36);
 		contentPane.add(btnNewButton);
 		
 		JLabel lblNewLabel = new JLabel("Coach Login");
@@ -87,6 +88,24 @@ public class CoachLogin extends JFrame {
 		contentPane.add(passwordField);
 		
 		JButton btnNewButton_1 = new JButton("Login");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String getUser = textField.getText();
+				String getPass = passwordField.getText();
+				if (getUser.equals("admin") && getPass.equals("admin")) {
+					AdminPage page = new AdminPage();
+					CoachLogin.this.dispose();
+					System.out.println(getUser + getPass);
+					page.setVisible(true);
+					
+				} else {
+					System.out.println(getUser);
+					System.out.println(getPass);
+					lblNewLabel_1.setText("Wrong Username or Password");
+				}
+				
+			}
+		});
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnNewButton_1.setBounds(271, 278, 85, 21);
 		contentPane.add(btnNewButton_1);
@@ -102,5 +121,10 @@ public class CoachLogin extends JFrame {
 		btnNewButton_2.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnNewButton_2.setBounds(27, 363, 85, 21);
 		contentPane.add(btnNewButton_2);
+		
+		
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblNewLabel_1.setBounds(388, 278, 169, 19);
+		contentPane.add(lblNewLabel_1);
 	}
 }
