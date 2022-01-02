@@ -5,6 +5,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 
 import javax.swing.ButtonGroup;
@@ -19,7 +21,8 @@ public class AdminPage extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtTeamName_1;
 	private JTextField txtTeamName;
-	private JTextField txtPlayername;
+	private JTextField txtAbc_1;
+	private JTextField txtAbc;
 
 	/**
 	 * Launch the application.
@@ -54,6 +57,17 @@ public class AdminPage extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("Add Team");
+		
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String getTeam = txtTeamName_1.getText();
+				Team t = new Team(getTeam);
+				MainMethod.teams.add(t);
+				JFrame f = new JFrame();  
+			    JOptionPane.showMessageDialog(f,"Team " + getTeam + " Added!");
+				
+			}
+		});
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btnNewButton.setBounds(456, 153, 127, 31);
 		contentPane.add(btnNewButton);
@@ -70,8 +84,30 @@ public class AdminPage extends JFrame {
 		
 		JButton btnRemoveTeam = new JButton("Remove Team");
 		btnRemoveTeam.addActionListener(new ActionListener() {
+			int index;
+			JFrame f = new JFrame();
 			public void actionPerformed(ActionEvent e) {
+				
+				String getTeam = txtTeamName.getText();
+				int bool = -1;
+				try {
+					index = MainMethod.searchTeam(getTeam);
+					System.out.println(index);
+					if (index != -1)
+						MainMethod.teams.remove(index);
+					
+				} catch (Exception error) {
+					System.out.println(error);
+					JOptionPane.showMessageDialog(f,"Team " + getTeam + " Could not be deleted");
+				}
+				
+				if (index != -1) {
+					JOptionPane.showMessageDialog(f,"Team " + getTeam + " Successfully Deleted");
+				}
+				else
+				    JOptionPane.showMessageDialog(f,"Team " + getTeam + " Not found");
 			}
+				
 		});
 		btnRemoveTeam.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnRemoveTeam.setBounds(456, 205, 127, 31);
@@ -82,60 +118,85 @@ public class AdminPage extends JFrame {
 		lblNewLabel_2.setBounds(260, 96, 155, 13);
 		contentPane.add(lblNewLabel_2);
 		
-		JLabel lblNewLabel_2_1 = new JLabel("Player Controls");
-		lblNewLabel_2_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_2_1.setBounds(260, 278, 155, 13);
-		contentPane.add(lblNewLabel_2_1);
-		
-		JButton btnAddPlayer = new JButton("Add Player\r\n");
-		btnAddPlayer.setFont(new Font("Tahoma", Font.BOLD, 13));
-		btnAddPlayer.setBounds(456, 320, 127, 31);
-		contentPane.add(btnAddPlayer);
-		
-		JLabel lblNewLabel_1_2 = new JLabel("Add or remove a player?");
-		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1_2.setBounds(41, 324, 176, 21);
-		contentPane.add(lblNewLabel_1_2);
-		
 		txtTeamName_1 = new JTextField();
 		txtTeamName_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		txtTeamName_1.setText("Team Name");
+		txtTeamName_1.setText("abc");
 		txtTeamName_1.setBounds(245, 153, 167, 31);
 		contentPane.add(txtTeamName_1);
 		txtTeamName_1.setColumns(10);
 		
 		txtTeamName = new JTextField();
 		txtTeamName.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		txtTeamName.setText("Team Name\r\n");
+		txtTeamName.setText("abc");
 		txtTeamName.setColumns(10);
 		txtTeamName.setBounds(245, 205, 167, 31);
 		contentPane.add(txtTeamName);
 		
-		txtPlayername = new JTextField();
-		txtPlayername.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		txtPlayername.setToolTipText("Player Name\r\n");
-		txtPlayername.setText("Player Name\r\n");
-		txtPlayername.setColumns(10);
-		txtPlayername.setBounds(245, 321, 167, 31);
-		contentPane.add(txtPlayername);
+		JLabel lblNewLabel_1_2 = new JLabel("Search a team");
+		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblNewLabel_1_2.setBounds(67, 274, 155, 21);
+		contentPane.add(lblNewLabel_1_2);
 		
-		 ButtonGroup G1 = new ButtonGroup();
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("Add");
-		G1.add(rdbtnNewRadioButton);
-		rdbtnNewRadioButton.addActionListener(new ActionListener() {
+		txtAbc_1 = new JTextField();
+		txtAbc_1.setText("abc");
+		txtAbc_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		txtAbc_1.setColumns(10);
+		txtAbc_1.setBounds(245, 264, 167, 31);
+		contentPane.add(txtAbc_1);
+		
+		JButton btnSearchTeam = new JButton("Search Team\r\n");
+		btnSearchTeam.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				String getTeam = txtAbc_1.getText();
+				try {
+					System.out.println(MainMethod.searchTeam(getTeam));
+					if(MainMethod.searchTeam(getTeam) != -1) {
+						JFrame f = new JFrame();  
+					    JOptionPane.showMessageDialog(f,"Team " + getTeam + " Found!");
+					} else {
+						JFrame f = new JFrame();  
+					    JOptionPane.showMessageDialog(f,"Team " + getTeam + " Not Found!");
+					}
+				} catch (NullPointerException error) {
+					System.out.println(error);
+				}
+				
 				
 			}
 		});
-		rdbtnNewRadioButton.setSelected(true);
-		rdbtnNewRadioButton.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		rdbtnNewRadioButton.setBounds(234, 389, 103, 21);
-		contentPane.add(rdbtnNewRadioButton);
+		btnSearchTeam.setFont(new Font("Tahoma", Font.BOLD, 13));
+		btnSearchTeam.setBounds(456, 264, 127, 31);
+		contentPane.add(btnSearchTeam);
 		
-		JRadioButton rdbtnRemove = new JRadioButton("Remove\r\n");
-		G1.add(rdbtnRemove);
-		rdbtnRemove.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		rdbtnRemove.setBounds(339, 389, 103, 21);
-		contentPane.add(rdbtnRemove);
+		txtAbc = new JTextField();
+		txtAbc.setText("abc");
+		txtAbc.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		txtAbc.setColumns(10);
+		txtAbc.setBounds(245, 327, 167, 31);
+		contentPane.add(txtAbc);
+		
+		JLabel lblNewLabel_1_2_1 = new JLabel("Get Information of a team");
+		lblNewLabel_1_2_1.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblNewLabel_1_2_1.setBounds(24, 337, 198, 21);
+		contentPane.add(lblNewLabel_1_2_1);
+		
+		JButton btnGetInfo = new JButton("Get Info");
+		btnGetInfo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String getTeam = txtAbc.getText();
+				JFrame f = new JFrame();
+				int index = MainMethod.searchTeam(getTeam);
+				if (index != -1)
+					JOptionPane.showMessageDialog(f, MainMethod.teams.get(index).getInfo());
+				else
+					JOptionPane.showMessageDialog(f, "Team Not Found");
+			}
+		});
+		btnGetInfo.setFont(new Font("Tahoma", Font.BOLD, 13));
+		btnGetInfo.setBounds(456, 327, 127, 31);
+		contentPane.add(btnGetInfo);
+		
+		 ButtonGroup G1 = new ButtonGroup();
 	}
 }
