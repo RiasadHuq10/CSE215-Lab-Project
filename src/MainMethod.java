@@ -5,7 +5,7 @@ public class MainMethod
 {
 
     static ArrayList<Team> teams;
-    static void readTeam() throws IOException, ClassNotFoundException
+    public static void readTeam() throws IOException, ClassNotFoundException
     {
         try {
             FileInputStream fis = new FileInputStream("src/teamdata.dat");
@@ -19,7 +19,7 @@ public class MainMethod
 
         }
     }
-    static void writeTeam() throws IOException {
+    public static void writeTeam() throws IOException {
         FileOutputStream fos = new FileOutputStream("src/teamdata.dat");
         ObjectOutputStream oos = new ObjectOutputStream(fos);
         oos.writeObject(teams);
@@ -47,9 +47,10 @@ public class MainMethod
     {
 
         readTeam();
-        System.out.println(teams.size());
         FrontPage frontPage = new FrontPage();
         frontPage.setVisible(true);
+
+
 
 
 
