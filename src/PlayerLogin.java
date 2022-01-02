@@ -83,6 +83,20 @@ public class PlayerLogin extends JFrame {
 		contentPane.add(lblNewLabel_3);
 		
 		JButton btnNewButton_1 = new JButton("Login");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String getUser = textField.getText();
+				String getPass = passwordField.getText();
+				if (getUser.equals("player") && getPass.equals("player")) {
+					PlayerPage page = new PlayerPage();
+					PlayerLogin.this.dispose();
+					System.out.println(getUser + getPass);
+					page.setVisible(true);
+				} else {
+					System.out.println(getUser + " " + getPass);
+				}
+			}
+		});
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnNewButton_1.setBounds(276, 290, 85, 21);
 		contentPane.add(btnNewButton_1);

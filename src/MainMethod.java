@@ -4,7 +4,8 @@ import java.util.ArrayList;
 public class MainMethod
 {
 
-    static ArrayList<Team> teams;
+
+    public static ArrayList<Team> teams;
     public static void readTeam() throws IOException, ClassNotFoundException
     {
         try {
