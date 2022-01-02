@@ -69,6 +69,7 @@ public class FrontPage extends JFrame {
 				PlayerLogin plog = new PlayerLogin();
 				FrontPage.this.dispose();
 				plog.setVisible(true);
+
 			}
 		});
 		btnNewButton_1.setBounds(296, 174, 114, 29);
