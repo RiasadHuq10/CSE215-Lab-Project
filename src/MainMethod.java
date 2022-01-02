@@ -43,11 +43,45 @@ public class MainMethod
         return -1;
     }
 
+    public static ArrayList<Password> users;
+    public static void readUser() throws IOException, ClassNotFoundException
+    {
+        try {
+            FileInputStream fis = new FileInputStream("src/userdata.dat");
+
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            users = ( ArrayList<Password>) ois.readObject();
+            ois.close();}
+        catch (Exception ex)
+        {
+            users = new ArrayList<Password>();
+
+        }
+    }
+    public static void writeUser() throws IOException {
+        FileOutputStream fos = new FileOutputStream("src/userdata.dat");
+        ObjectOutputStream oos = new ObjectOutputStream(fos);
+        oos.writeObject(users);
+        oos.close();
+
+    }
+    public static int searchUser(Password userInput)
+    {
+        for(int i = 0; i<users.size();i++)
+        {
+            if(userInput.getUsername().equals(users.get(i).getUsername()) && userInput.getPassword().equals(users.get(i).getPassword()))
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
 
     public static void main(String args[]) throws IOException, ClassNotFoundException
     {
 
         readTeam();
+        readUser();
         FrontPage frontPage = new FrontPage();
         frontPage.setVisible(true);
 
@@ -56,5 +90,6 @@ public class MainMethod
 
 
         writeTeam();
+        writeUser();
     }
 }
