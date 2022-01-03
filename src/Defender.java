@@ -1,4 +1,4 @@
-public class Defender extends Player
+public class Defender extends Player implements FieldPlayer
 {
     int numberOfTackles;
     int numberOfBlocks;

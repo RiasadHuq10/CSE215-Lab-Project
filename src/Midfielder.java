@@ -1,4 +1,4 @@
-public class Midfielder extends Player
+public class Midfielder extends Player implements FieldPlayer
 {
     int numberOfAssists;
     int numberOfPasses;

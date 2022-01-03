@@ -1,4 +1,4 @@
-public class Forward extends Player
+public class Forward extends Player implements FieldPlayer
 {
     int numberOfGoals;
     int numberOfShots;
