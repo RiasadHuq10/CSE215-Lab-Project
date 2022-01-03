@@ -15,6 +15,7 @@ public class Defender extends Player implements FieldPlayer
         this.numberOfBlocks = numberOfBlocks;
         this.numberOfTackles = numberOfTackles;
     }
+
     public int getNumberOfBlocks()
     {
         return numberOfBlocks;
