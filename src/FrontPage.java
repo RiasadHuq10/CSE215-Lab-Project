@@ -52,7 +52,7 @@ public class FrontPage extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnNewButton = new JButton("Coach Login");
+		JButton btnNewButton = new JButton("Admin Login");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CoachLogin clog = new CoachLogin();
@@ -63,7 +63,7 @@ public class FrontPage extends JFrame {
 		btnNewButton.setBounds(77, 174, 114, 29);
 		contentPane.add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("Player Login");
+		JButton btnNewButton_1 = new JButton("User Login");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				PlayerLogin plog = new PlayerLogin();
@@ -75,7 +75,7 @@ public class FrontPage extends JFrame {
 		btnNewButton_1.setBounds(296, 174, 114, 29);
 		contentPane.add(btnNewButton_1);
 		
-		JLabel lblNewLabel = new JLabel("Are you a Team Coach or a Player?");
+		JLabel lblNewLabel = new JLabel("Are you an Admin or a User?");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		lblNewLabel.setBounds(151, 88, 280, 29);
 		contentPane.add(lblNewLabel);

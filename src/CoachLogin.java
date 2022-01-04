@@ -48,21 +48,7 @@ public class CoachLogin extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnNewButton = new JButton("Sign up instead?");
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				CoachSignup sign = new CoachSignup();
-				
-				CoachLogin.this.dispose();
-				sign.setVisible(true);
-			}
-		});
-		btnNewButton.setBounds(245, 355, 142, 36);
-		contentPane.add(btnNewButton);
-		
-		JLabel lblNewLabel = new JLabel("Coach Login");
+		JLabel lblNewLabel = new JLabel("Admin Login");
 		lblNewLabel.setForeground(Color.BLACK);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel.setBounds(271, 65, 132, 36);
@@ -78,7 +64,7 @@ public class CoachLogin extends JFrame {
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
-		JLabel lblNewLabel_3 = new JLabel("New label");
+		JLabel lblNewLabel_3 = new JLabel("Password");
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 16));
 		lblNewLabel_3.setBounds(159, 197, 121, 36);
 		contentPane.add(lblNewLabel_3);
@@ -110,7 +96,7 @@ public class CoachLogin extends JFrame {
 		btnNewButton_1.setBounds(271, 278, 85, 21);
 		contentPane.add(btnNewButton_1);
 		
-		JButton btnNewButton_2 = new JButton("HOME");
+		JButton btnNewButton_2 = new JButton("Log Out");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				FrontPage home = new FrontPage();
@@ -119,7 +105,7 @@ public class CoachLogin extends JFrame {
 			}
 		});
 		btnNewButton_2.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnNewButton_2.setBounds(27, 363, 85, 21);
+		btnNewButton_2.setBounds(501, 369, 132, 21);
 		contentPane.add(btnNewButton_2);
 		
 		

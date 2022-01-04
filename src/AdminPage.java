@@ -152,8 +152,10 @@ public class AdminPage extends JFrame {
 				try {
 					System.out.println(MainMethod.searchTeam(getTeam));
 					if(MainMethod.searchTeam(getTeam) != -1) {
-						JFrame f = new JFrame();  
-					    JOptionPane.showMessageDialog(f,"Team " + getTeam + " Found!");
+						AdminPlayerMethodpage f = new AdminPlayerMethodpage(MainMethod.searchTeam(getTeam));
+						AdminPage.this.dispose();
+						f.setVisible(true);
+					    //JOptionPane.showMessageDialog(f,"Team " + getTeam + " Found!");
 					} else {
 						JFrame f = new JFrame();  
 					    JOptionPane.showMessageDialog(f,"Team " + getTeam + " Not Found!");
@@ -196,6 +198,18 @@ public class AdminPage extends JFrame {
 		btnGetInfo.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btnGetInfo.setBounds(456, 327, 127, 31);
 		contentPane.add(btnGetInfo);
+		
+		JButton btnNewButton_2 = new JButton("Log Out");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				FrontPage home = new FrontPage();
+				AdminPage.this.dispose();
+				home.setVisible(true);
+			}
+		});
+		btnNewButton_2.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnNewButton_2.setBounds(505, 48, 132, 21);
+		contentPane.add(btnNewButton_2);
 		
 		 ButtonGroup G1 = new ButtonGroup();
 	}
