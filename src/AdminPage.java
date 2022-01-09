@@ -12,6 +12,7 @@ import java.awt.Font;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import javax.swing.JRadioButton;
@@ -63,6 +64,13 @@ public class AdminPage extends JFrame {
 				String getTeam = txtTeamName_1.getText();
 				Team t = new Team(getTeam);
 				MainMethod.teams.add(t);
+				try {
+					MainMethod.writeTeam();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
 				JFrame f = new JFrame();  
 			    JOptionPane.showMessageDialog(f,"Team " + getTeam + " Added!");
 				
@@ -103,6 +111,13 @@ public class AdminPage extends JFrame {
 				
 				if (index != -1) {
 					JOptionPane.showMessageDialog(f,"Team " + getTeam + " Successfully Deleted");
+					try {
+						MainMethod.writeTeam();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+
 				}
 				else
 				    JOptionPane.showMessageDialog(f,"Team " + getTeam + " Not found");

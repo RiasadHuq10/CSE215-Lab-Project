@@ -11,6 +11,7 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 
 public class ForwardFrame extends JFrame {
@@ -129,6 +130,13 @@ public class ForwardFrame extends JFrame {
 					
 					Forward gk = new Forward(name, age, games, goals, tackles);
 					MainMethod.teams.get(teamidx).forwards.add(gk);
+					try {
+						MainMethod.writeTeam();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+
 //					for (int i = 0; i < MainMethod.teams.get(id).goalkeepers.size(); i++) {
 //						System.out.println(MainMethod.teams.get(id).goalkeepers.get(i).name);
 //					}

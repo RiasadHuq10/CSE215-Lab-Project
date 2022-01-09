@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Font;
@@ -87,13 +88,17 @@ public class PlayerLogin extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String getUser = textField.getText();
 				String getPass = passwordField.getText();
-				if (getUser.equals("player") && getPass.equals("player")) {
+				//getUser.equals("player") && getPass.equals("player")
+				Password user = new Password(getUser, getPass);
+				if (MainMethod.searchUser(user) != -1) {
 					PlayerPage page = new PlayerPage();
 					PlayerLogin.this.dispose();
 					System.out.println(getUser + getPass);
 					page.setVisible(true);
 				} else {
-					System.out.println(getUser + " " + getPass);
+					//System.out.println(getUser + " " + getPass); 
+					JFrame f = new JFrame();  
+				    JOptionPane.showMessageDialog(f, "Wrong username or password!");
 				}
 			}
 		});

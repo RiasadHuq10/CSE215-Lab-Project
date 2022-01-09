@@ -96,7 +96,7 @@ public class CoachLogin extends JFrame {
 		btnNewButton_1.setBounds(271, 278, 85, 21);
 		contentPane.add(btnNewButton_1);
 		
-		JButton btnNewButton_2 = new JButton("Log Out");
+		JButton btnNewButton_2 = new JButton("Home");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				FrontPage home = new FrontPage();

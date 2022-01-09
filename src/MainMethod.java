@@ -79,17 +79,24 @@ public class MainMethod
 
     public static void main(String args[]) throws IOException, ClassNotFoundException
     {
-
+    	
+    	
         readTeam();
         readUser();
+        
         FrontPage frontPage = new FrontPage();
         frontPage.setVisible(true);
 
 
-
+        
 
 
         writeTeam();
         writeUser();
+        
+        System.out.println(users.size());
+        for (int i = 0; i < users.size(); i++) {
+        	System.out.println(users.get(i).getUsername() + " " + users.get(i).getPassword());
+        }
     }
 }

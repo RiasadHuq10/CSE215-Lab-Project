@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 
 public class DefFrame extends JFrame {
@@ -128,6 +129,13 @@ public class DefFrame extends JFrame {
 					
 					Defender gk = new Defender(name, age, games, blocks, tackles);
 					MainMethod.teams.get(teamidx).defenders.add(gk);
+					try {
+						MainMethod.writeTeam();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+
 //					for (int i = 0; i < MainMethod.teams.get(id).goalkeepers.size(); i++) {
 //						System.out.println(MainMethod.teams.get(id).goalkeepers.get(i).name);
 //					}

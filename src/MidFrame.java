@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 
 public class MidFrame extends JFrame {
@@ -127,6 +128,13 @@ public class MidFrame extends JFrame {
 					
 					Midfielder gk = new Midfielder(name, age, games, assists, pass);
 					MainMethod.teams.get(teamidx).midfielders.add(gk);
+					try {
+						MainMethod.writeTeam();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+
 //					for (int i = 0; i < MainMethod.teams.get(id).midfielders.size(); i++) {
 //						System.out.println(MainMethod.teams.get(id).midfielders.get(i).name);
 //					}

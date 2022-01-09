@@ -11,6 +11,7 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
 
@@ -133,6 +134,13 @@ public class GKFrame extends JFrame {
 					
 					Goalkeeper gk = new Goalkeeper(name, age, games, cs, saves);
 					MainMethod.teams.get(id).goalkeepers.add(gk);
+					try {
+						MainMethod.writeTeam();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+
 //					for (int i = 0; i < MainMethod.teams.get(id).goalkeepers.size(); i++) {
 //						System.out.println(MainMethod.teams.get(id).goalkeepers.get(i).name);
 //					}
